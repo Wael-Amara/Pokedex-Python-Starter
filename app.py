@@ -8,27 +8,22 @@ data = json.load(pokedex)
 """ for pokemon in range(len(data)):
      print (data[pokemon]["name"]) """
 # Add a language choice feature and print the pokemons name based on the user input
-language = input('what language do u want (english, japanese, chinese, or french) - ')
-for pokemon in range(len(data)):
-     print (data[pokemon]["name"][language])
+def poke_lang():
+     global language
+     language = input('what language do u want (english, japanese, chinese, or french) - ')
+     for pokemon in range(len(data)):
+          print (data[pokemon]["name"][language])
+poke_lang()
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
-y= input('what typ of pokemon do u wanna see - ')
-print('')
-
-print(data[pokemon]["type"])
-for i in range(len(data)):
-     print(data[i]["type"])
-     if data[i]["type"] == y:
-          print(data[i]["type"])
-
-""" for pokemon in range(len(data)):
-     z=[]
-     pokemon == 0
-     if data[pokemon]["type"][pokemon]==y:
-          z.append(data[pokemon]['name'][language])
-          z.append(data[pokemon+1]['name'][language])
-          pokemon == 0
-print(z) """
+def poke_type():
+     pokemon_type = input('What typ of pokemon do u like')
+     for item in (data):
+          if pokemon_type.title() in item['type']:
+               print(item['name'][language])
+poke_type()
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
-
+pokemon_search = input('search for pokemon (Ex. if "Char" return Charmander, Charmeleon and Charizard)')
+for item in (data):
+     if pokemon_search in item['name']:
+          print(item['name'][language])
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
