@@ -23,13 +23,16 @@ def poke_type():
 poke_type() 
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 pokemon_search = input('search for pokemon (Ex. if "Char" return Charmander, Charmeleon and Charizard) - ')
+pokemon_search = pokemon_search.lower()
 x = []
 found = False
 for pokemon in data:
-     if pokemon_search == pokemon['name'][language]:
+     poke_name = pokemon['name'][language].lower()
+     if pokemon_search in poke_name:
           x.append(pokemon['name'][language])
           found = True
 if not found:
      print("No Pokemon found")
-print(x)       
+if not not found:
+     print(x) 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
